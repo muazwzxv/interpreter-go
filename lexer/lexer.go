@@ -2,7 +2,23 @@ package lexer
 
 type Lexer struct {
 	input        string
-	position     int  // Current position in input(index current char)
+	position     int  // Current position in input(points current char)
 	readPosition int  // Current reading position in input (after current char)
 	ch           byte // Current char under examination
+}
+
+func New(in string) *Lexer {
+	l := &Lexer{input: in}
+
+	return l
+}
+
+func (l *Lexer) readChar() {
+	if l.readPosition >= len(l.input) {
+		l.ch = 0
+	} else {
+		l.ch = l.input[l.readPosition]
+	}
+
+	l.position = l.readPosition
 }
