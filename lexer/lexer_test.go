@@ -11,7 +11,7 @@ type Token struct {
 }
 
 func TestNextToken(t *testing.T) {
-	input := `=_(){},;`
+	input := `=+(){},;`
 
 	tests := []struct {
 		expectedType    token.TokenType
